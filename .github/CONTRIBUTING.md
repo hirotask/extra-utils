@@ -62,22 +62,6 @@ Please make sure the following is done when submitting a pull request:
 3. **Check the base branch.**: All pull requests should be opened against the `develop` branch.
 4. **Check to see if Breaking Changes is included.**: If included, check [here](#breaking-changes).
 
-### Pull Request Title
-
-When submitting a Pull Request, please use the following title format:
-
-```
-Feature/#1111: The title of this pull request
-```
-
-**Prefix**: Use the prefix of the branch you created. Capitalize only the first letter.
-
-**Issue ID**: Include the issue number this PR resolves. If there is no related issue, you can omit this.
-
-**Colon**: Always include a colon (`:`) after the issue ID.
-
-**Title**: Briefly describe the content of this PR. Capitalize only the first letter.
-
 ### Breaking Changes
 
 When adding a new breaking change, follow this template in your pull request:
