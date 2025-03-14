@@ -1,6 +1,6 @@
-# Logimo Contributing Guide
+# Contributing Guide
 
-Hi! We are really happy that you are interested in contributing to **Logimo**, please make sure to take a moment and read through the following guide:
+Hi! We are really happy that you are interested in contributing to this repository, please make sure to take a moment and read through the following guide:
 
 ## 👨‍💻 Repository Setup
 
