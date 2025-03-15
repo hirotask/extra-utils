@@ -1,6 +1,9 @@
 /node_modules
 /src
 
+.*
+*.config.mjs
+
 tsconfig.json
 tsconfig.base.json
 tsconfig.cjs.json
