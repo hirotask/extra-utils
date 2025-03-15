@@ -1,41 +1,42 @@
-name: CI
+name: Publish this package
 
-on: 
+on:
   push:
-    paths-ignore:
-      - ".github/**"
-      - ".devcontainer/**"
+    tags:
+      - "*"
+  workflow_dispatch:
+
 env:
   NODE_VERSION: "20.12.2" # set this to the node version to use
 
 jobs:
-  test-build-lint:
+  publish:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v3
+    permissions:
+      contents: read
+      id-token: write
 
+    steps:
+      - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10.0.0
           run_install: false
-      
-      - name: Install Node.js
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
-      
+          registry-url: 'https://registry.npmjs.org'
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint check
-        run: pnpm lint
-
-      - name: Build check
+      - name: Build
         run: pnpm build
-      
-      - name: Run unit test
-        run: pnpm test
 
+      - name: Publish
+        run: pnpm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
