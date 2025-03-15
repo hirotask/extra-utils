@@ -85,3 +85,14 @@ export function downTo(start: number, end: number): number[] {
 
     return result;
 }
+
+/**
+ * Executes a callback function a specified number of times.
+ * @param num - The number of times to execute the callback
+ * @param callback - The function to execute, receives the current iteration index
+ */
+export function repeat(num: number, callback: (it: number) => void): void {
+    for (let i = 0; i < num; i++) {
+        callback(i);
+    }
+}
