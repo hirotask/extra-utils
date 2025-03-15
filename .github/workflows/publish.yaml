@@ -3,6 +3,7 @@ name: Publish this package
 on:
   push:
     tags:
+      - "*"
 
 env:
   NODE_VERSION: "20.12.2" # set this to the node version to use
