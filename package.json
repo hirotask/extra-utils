@@ -1,32 +1,42 @@
 {
-  "name": "@hirotask/extra-utils",
-  "version": "1.0.0",
-  "description": "This is extra utilities for Typescript.",
-  "main": "index.js",
-  "repository": "https://github.com/hirotask/extra-utils",
-  "scripts": {
-    "format": "prettier --write ./src",
-    "lint": "eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
-  },
-  "keywords": [
-    "utils"
-  ],
-  "author": "hirotask",
-  "license": "MIT",
-  "devDependencies": {
-    "@commitlint/cli": "^19.8.0",
-    "@commitlint/config-conventional": "^19.8.0",
-    "@eslint/js": "^9.22.0",
-    "@types/eslint": "^9.6.1",
-    "eslint": "^9.22.0",
-    "eslint-config-prettier": "^10.1.1",
-    "globals": "^16.0.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.5.0",
-    "prettier": "^3.5.3",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.1"
-  }
+    "name": "@hirotask/extra-utils",
+    "version": "0.1.0",
+    "description": "This is extra utilities for Typescript.",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/esm/index.d.js",
+    "repository": "https://github.com/hirotask/extra-utils",
+    "scripts": {
+        "build": "pnpm build:cjs && pnpm build:esm",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build:esm": "tsc -p tsconfig.esm.json",
+        "format": "eslint --fix './{bin,lib,src,tests}/**/*.{ts,tsx}' && prettier --write './{bin,lib,src,tests}/**/*.{ts,tsx}'",
+        "lint": "eslint './{bin,lib,src,tests}/**/*.{ts,tsx}' && prettier --check './{bin,lib,src,tests}/**/*.{ts,tsx}'",
+        "test": "NODE_OPTIONS=--experimental-vm-modules jest ./src --passWithNoTests",
+        "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest ./src --watch --passWithNoTests",
+        "prepare": "husky"
+    },
+    "keywords": [
+        "utils"
+    ],
+    "author": "hirotask",
+    "license": "MIT",
+    "devDependencies": {
+        "@commitlint/cli": "^19.8.0",
+        "@commitlint/config-conventional": "^19.8.0",
+        "@eslint/js": "^9.22.0",
+        "@types/eslint": "^9.6.1",
+        "@types/jest": "^29.5.14",
+        "esbuild-jest": "^0.5.0",
+        "eslint": "^9.22.0",
+        "eslint-config-prettier": "^10.1.1",
+        "globals": "^16.0.0",
+        "husky": "^9.1.7",
+        "jest": "^29.7.0",
+        "lint-staged": "^15.5.0",
+        "prettier": "^3.5.3",
+        "ts-jest-resolver": "^2.0.1",
+        "typescript": "^5.8.2",
+        "typescript-eslint": "^8.26.1"
+    }
 }
