@@ -1,4 +1,4 @@
-name: Check build, test, and format
+name: CI
 
 on: 
   push:
